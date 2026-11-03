@@ -145,7 +145,8 @@ def run(backfill: bool, days: int, settle_days: int):
         conn.close()
 
     mode = "backfill" if backfill else "daily"
-    print(f"{mode}: upserted {n} rows for {start} .. {end} (exclusive)")
+    ts = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    print(f"{ts} {mode}: upserted {n} rows for {start} .. {end} (exclusive)")
 
 
 def main():
