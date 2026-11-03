@@ -18,7 +18,9 @@ One script, no ORM. Restated costs are handled by upsert, so re-running is alway
 
 ## Requirements
 
-- Python 3.9+
+- Python 3.10+ (boto3 dropped Python 3.9 support on 2026-04-29). If the
+  default `python3` is older, install a newer interpreter and build the venv
+  with it, e.g. `python3.12 -m venv venv`.
 - A reachable MySQL/MariaDB database (e.g. RDS)
 - AWS credentials with permission `ce:GetCostAndUsage` (via env, shared profile, or an instance role)
 
@@ -26,7 +28,7 @@ One script, no ORM. Restated costs are handled by upsert, so re-running is alway
 
 ```bash
 # from the repo root
-python3 -m venv venv
+python3 -m venv venv          # use a 3.10+ interpreter, e.g. python3.12 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
